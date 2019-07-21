@@ -1,0 +1,28 @@
+// JavaScript program that sets the border line of image black.
+
+function setBlack(pixel){
+    pixel.setRed(255);
+    pixel.setGreen(255);
+    pixel.setBlue(255);
+    return pixel;
+}
+function addBorder(img,thickness){
+    var width = img.getWidth();
+    var height = img.getHeight();
+    var pixel;
+    for(pixel of img.values()){
+        var x = pixel.getX();
+        var y = pixel.getY();
+        if(x<thickness || x>width-thickness){
+            pixel = setBlack(pixel);
+        }
+        if(y<thickness || y>height-thickness){
+            pixel = setBlack(pixel);
+        }
+    }
+    return img;
+}
+var img = new SimpleImage("lion.jpg");
+img = addBorder(img,40);
+print(img);
+
