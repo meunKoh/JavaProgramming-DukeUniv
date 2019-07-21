@@ -1,0 +1,23 @@
+//JavaScript program that modifies an image by putting three vertical stripes on it 
+- a red stripe on the left one third, 
+- a green stripe in the middle, 
+- and a blue stripe on the right one third.
+
+var img = new SimpleImage("usain.jpg");
+var x = img.getWidth();
+var y = img.getHeight();
+print("x = " + x + ", y = " + y)
+for(var pixel of img.values()){
+    var currX = pixel.getX();
+    if(currX <= 100){
+        pixel.setRed(255);        
+    }else if(currX <= 200){
+        pixel.setGreen(255);        
+    }else{
+        pixel.setBlue(0);        
+    }
+}
+print(img);
+
+//JavaScript program that swaps red pixel values with green pixel value.
+swapRedGreen
